@@ -1,12 +1,10 @@
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecrpublic_repository
 resource "aws_ecrpublic_repository" "repos" {
-  for_each = var.repo_names
-
-  repository_name = each.value
+  repository_name = var.repo_name
 
   catalog_data {
-    about_text = "ECR Public repository for ${each.value}"
+    about_text = "ECR Public repository for ${var.repo_name} Helm chart"
     architectures = [
       "ARM64",
       "X86_64",
