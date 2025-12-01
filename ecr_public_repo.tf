@@ -1,7 +1,7 @@
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecrpublic_repository
 resource "aws_ecrpublic_repository" "this" {
-  repository_name = var.repo_name
+  repository_name = "helm/${var.repo_name}"
 
   catalog_data {
     about_text = "ECR Public repository for ${var.repo_name} Helm chart"
